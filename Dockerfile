@@ -11,7 +11,7 @@ COPY requirement.txt /app/
 RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
 
 # on isntalle les requirement disponible
-RUN pip install --no-cache-dir -r requirement.txt
+RUN ./venv/bin/pip install --no-cache-dir -r requirement.txt
 
 # on copie la suite des fichiers dans app
 COPY . /app/
@@ -21,7 +21,7 @@ EXPOSE 8000
 
 # on définit le entrypoint de notre application (sera static tout au long de l'execution de notre container)
 # il définit le programme fixe du container
-ENTRYPOINT [ "python3", "manage.py" ]
+ENTRYPOINT [ "./venv/bin/python3", "manage.py" ]
 
 # on définti egalement le CMD 
 # peut-être modifiée, elle sert de commande par défaut
