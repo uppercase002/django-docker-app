@@ -10,8 +10,6 @@ COPY requirement.txt /app/
 # on execute les commandes (update et installation de python et pip)
 RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
 
-RUN source ./venv/bin/activate
-
 # on isntalle les requirement disponible
 RUN pip install --no-cache-dir -r requirement.txt
 
